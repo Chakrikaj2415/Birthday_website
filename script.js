@@ -102,14 +102,14 @@ const scrapbookGrid = document.getElementById("scrapbookGrid");
 
 const scrapbookCaptions = [
     "the little moments ♡",
-    "a day to remember",
-    "making memories ✧",
-    "the best kind of chaos",
-    "our favorite people",
-    "little adventures",
-    "laughing a little too much",
-    "a moment in time ♡",
-    "the sweetest memories",
+    "Inside out 😡😊😢😓🤢",
+    "making memories at Prom ✧",
+    "Sunrises and smiles",
+    "Halloween w soulja boys",
+    "First day of senior year",
+    "Umi Shushi 🍣 w the fam",
+    "First movie all together 🎬",
+    "Senior sunrise 🌅",
     "just being you",
     "another day, another story",
     "one for the camera",
@@ -121,7 +121,7 @@ const scrapbookCaptions = [
     "and everything in between ♡"
 ];
 
-for (let i = 1; i <= 18; i++) {
+for (let i = 1; i <= 9; i++) {
     const photoCard = document.createElement("div");
     photoCard.className = "scrapbook-photo";
 
@@ -129,7 +129,7 @@ for (let i = 1; i <= 18; i++) {
     imageArea.className = "scrapbook-image";
 
     const image = document.createElement("img");
-    image.src = `images/photo${i}.jpg`;
+    image.src = `images/photo${i}.jpeg`;
     image.alt = `Scrapbook memory ${i}`;
 
     const placeholder = document.createElement("div");
