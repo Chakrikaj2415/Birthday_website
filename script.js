@@ -1,21 +1,11 @@
 
-/* =====================================
-   1. BIRTHDAY DATE
-===================================== */
-
-// Change this date to test your website.
-// November = 10 in JavaScript.
-const birthday = new Date(2026, 10, 16, 0, 0, 0);
-
-
-/* =====================================
-   2. PAGE NAVIGATION
-===================================== */
+// PAGE NAVIGATION
 
 const pages = [
     "countdownPage",
     "birthdayPage",
     "menuPage",
+    "scrapbookPage",
     "letterPage",
     "cakePage"
 ];
@@ -33,57 +23,62 @@ function showPage(pageId) {
     });
 }
 
+// COUNTDOWN
 
-/* =====================================
-   3. COUNTDOWN
-===================================== */
-
-let birthdayUnlocked = false;
-let countdownInterval;
+const birthday = new Date(2026, 10, 16, 0, 0, 0);
 
 function updateCountdown() {
     const now = new Date();
     const difference = birthday - now;
 
     if (difference <= 0) {
-        if (!birthdayUnlocked) {
-            birthdayUnlocked = true;
-            showPage("birthdayPage");
-        }
-
+        showPage("birthdayPage");
         clearInterval(countdownInterval);
         return;
     }
 
+    const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((difference / (1000 * 60)) % 60);
+    const seconds = Math.floor((difference / 1000) % 60);
+
     document.getElementById("days").textContent =
-        Math.floor(difference / 86400000);
+        String(days).padStart(2, "0");
 
     document.getElementById("hours").textContent =
-        Math.floor((difference / 3600000) % 24);
+        String(hours).padStart(2, "0");
 
     document.getElementById("minutes").textContent =
-        Math.floor((difference / 60000) % 60);
+        String(minutes).padStart(2, "0");
 
     document.getElementById("seconds").textContent =
-        Math.floor((difference / 1000) % 60);
+        String(seconds).padStart(2, "0");
 }
 
+const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
-countdownInterval = setInterval(updateCountdown, 1000);
 
+// STARTING PAGE
 
-/* =====================================
-   4. OPEN SURPRISE
-===================================== */
+if (new Date() >= birthday) {
+    showPage("birthdayPage");
+} else {
+    showPage("countdownPage");
+}
+
+// HOMEPAGE AND MENU BUTTONS
 
 document.getElementById("openButton").addEventListener("click", () => {
     showPage("menuPage");
 });
 
+document.getElementById("homeButton").addEventListener("click", () => {
+    showPage("birthdayPage");
+});
 
-/* =====================================
-   5. SURPRISE CARDS
-===================================== */
+document.getElementById("scrapbookButton").addEventListener("click", () => {
+    showPage("scrapbookPage");
+});
 
 document.getElementById("letterButton").addEventListener("click", () => {
     showPage("letterPage");
@@ -93,10 +88,7 @@ document.getElementById("cakeButton").addEventListener("click", () => {
     showPage("cakePage");
 });
 
-
-/* =====================================
-   6. BACK BUTTONS
-===================================== */
+// BACK BUTTONS
 
 document.querySelectorAll(".backButton").forEach(button => {
     button.addEventListener("click", () => {
@@ -104,120 +96,158 @@ document.querySelectorAll(".backButton").forEach(button => {
     });
 });
 
+// SCRAPBOOK
 
-/* =====================================
-   7. CREATE 17 CANDLES
-===================================== */
+const scrapbookGrid = document.getElementById("scrapbookGrid");
 
-const candlesContainer = document.getElementById("candles");
+const scrapbookCaptions = [
+    "the little moments ♡",
+    "a day to remember",
+    "making memories ✧",
+    "the best kind of chaos",
+    "our favorite people",
+    "little adventures",
+    "laughing a little too much",
+    "a moment in time ♡",
+    "the sweetest memories",
+    "just being you",
+    "another day, another story",
+    "one for the camera",
+    "memories on repeat",
+    "the good old days",
+    "a little bit of everything",
+    "the moments that matter",
+    "sixteen was special",
+    "and everything in between ♡"
+];
 
-for (let i = 0; i < 17; i++) {
-    const candle = document.createElement("div");
-    candle.className = "candle";
+for (let i = 1; i <= 18; i++) {
+    const photoCard = document.createElement("div");
+    photoCard.className = "scrapbook-photo";
 
-    const flame = document.createElement("div");
-    flame.className = "flame";
+    const imageArea = document.createElement("div");
+    imageArea.className = "scrapbook-image";
 
-    candle.appendChild(flame);
-    candlesContainer.appendChild(candle);
+    const image = document.createElement("img");
+    image.src = `images/photo${i}.jpg`;
+    image.alt = `Scrapbook memory ${i}`;
+
+    const placeholder = document.createElement("div");
+    placeholder.className = "scrapbook-placeholder";
+    placeholder.innerHTML = `♡<small>PHOTO ${i}</small>`;
+
+    image.onload = () => {
+        image.style.display = "block";
+        placeholder.style.display = "none";
+    };
+
+    image.onerror = () => {
+        image.style.display = "none";
+        placeholder.style.display = "flex";
+    };
+
+    imageArea.appendChild(image);
+    imageArea.appendChild(placeholder);
+
+    const caption = document.createElement("p");
+    caption.className = "scrapbook-caption";
+    caption.textContent = scrapbookCaptions[i - 1];
+
+    photoCard.appendChild(imageArea);
+    photoCard.appendChild(caption);
+
+    scrapbookGrid.appendChild(photoCard);
 }
 
+// LETTER ENVELOPE
 
-/* =====================================
-   8. BLOW OUT CANDLES
-===================================== */
+const envelope = document.getElementById("envelope");
+const letterMessage = document.getElementById("letterMessage");
+const envelopeHint = document.getElementById("envelopeHint");
 
-const blowButton = document.getElementById("blowButton");
-const resetButton = document.getElementById("resetButton");
+envelope.addEventListener("click", () => {
+    envelope.classList.toggle("open");
 
-blowButton.addEventListener("click", () => {
-    document.querySelectorAll(".flame").forEach(flame => {
-        flame.classList.add("off");
+    if (envelope.classList.contains("open")) {
+        envelopeHint.textContent = "Your little letter ♡";
+        letterMessage.classList.remove("hidden");
+    } else {
+        envelopeHint.textContent = "Tap to open ♡";
+        letterMessage.classList.add("hidden");
+    }
+});
+
+// CAKE CANDLES
+
+const candlesContainer = document.getElementById("candles");
+const cakeMessage = document.getElementById("cakeMessage");
+
+function createCandles() {
+    candlesContainer.innerHTML = "";
+
+    for (let i = 0; i < 17; i++) {
+        const candle = document.createElement("div");
+        candle.className = "candle";
+
+        const flame = document.createElement("div");
+        flame.className = "flame";
+
+        candle.appendChild(flame);
+        candlesContainer.appendChild(candle);
+    }
+
+    cakeMessage.textContent = "Take a breath and make a wish! ♡";
+}
+
+createCandles();
+
+// BLOW OUT CANDLES
+
+document.getElementById("blowButton").addEventListener("click", () => {
+    const flames = document.querySelectorAll(".flame");
+
+    flames.forEach(flame => {
+        flame.style.display = "none";
     });
 
-    document.getElementById("cakeMessage").textContent =
-        "You made a wish! ♡";
-
-    document.getElementById("celebration").classList.remove("hidden");
-
-    blowButton.disabled = true;
+    cakeMessage.textContent = "Your wish is on its way! Happy 17th! ♡";
 
     createConfetti();
 });
 
+// RESET CANDLES
 
-/* =====================================
-   9. RESET CAKE
-===================================== */
-
-resetButton.addEventListener("click", () => {
-    document.querySelectorAll(".flame").forEach(flame => {
-        flame.classList.remove("off");
-    });
-
-    document.getElementById("cakeMessage").textContent =
-        "17 little candles, one big wish.";
-
-    document.getElementById("celebration").classList.add("hidden");
-
-    blowButton.disabled = false;
+document.getElementById("resetButton").addEventListener("click", () => {
+    createCandles();
 });
 
-
-/* =====================================
-   10. CONFETTI
-===================================== */
+// CONFETTI
 
 function createConfetti() {
-    const decorations = ["🎉", "✨", "💗", "🎊", "♡"];
+    const colors = [
+        "#d99eae",
+        "#713d50",
+        "#f2d4d9",
+        "#b77c91",
+        "#f5c7a9",
+        "#ffffff"
+    ];
 
-    for (let i = 0; i < 60; i++) {
-        const confetti = document.createElement("span");
+    for (let i = 0; i < 90; i++) {
+        const piece = document.createElement("div");
+        piece.className = "confetti-piece";
 
-        confetti.textContent =
-            decorations[Math.floor(Math.random() * decorations.length)];
+        piece.style.left = Math.random() * 100 + "vw";
+        piece.style.backgroundColor =
+            colors[Math.floor(Math.random() * colors.length)];
 
-        confetti.style.position = "fixed";
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.top = "-30px";
-        confetti.style.fontSize = (16 + Math.random() * 15) + "px";
-        confetti.style.pointerEvents = "none";
-        confetti.style.zIndex = "9999";
+        piece.style.animationDelay = Math.random() * 1.5 + "s";
+        piece.style.animationDuration = (2 + Math.random() * 2) + "s";
 
-        confetti.style.animation =
-            `fall ${2 + Math.random() * 3}s linear forwards`;
-
-        document.body.appendChild(confetti);
+        document.body.appendChild(piece);
 
         setTimeout(() => {
-            confetti.remove();
-        }, 5000);
+            piece.remove();
+        }, 4500);
     }
 }
-
-
-/* =====================================
-   11. ANIMATED LETTER ENVELOPE
-===================================== */
-
-const envelope = document.getElementById("envelope");
-const envelopeButton = document.getElementById("envelopeButton");
-const closeLetterButton = document.getElementById("closeLetterButton");
-
-envelopeButton.addEventListener("click", () => {
-    envelope.classList.add("open");
-
-    envelopeButton.classList.add("hidden");
-
-    setTimeout(() => {
-        closeLetterButton.classList.remove("hidden");
-    }, 1000);
-});
-
-closeLetterButton.addEventListener("click", () => {
-    envelope.classList.remove("open");
-
-    closeLetterButton.classList.add("hidden");
-
-    envelopeButton.classList.remove("hidden");
-});

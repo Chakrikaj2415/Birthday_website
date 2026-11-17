@@ -1,564 +1,253 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>For You, With Love ♡</title>
-
     <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- =================================
-         PAGE 1: COUNTDOWN
-    ================================== -->
+    <div class="background-decor" aria-hidden="true">
+        <span>♡</span><span>✧</span><span>·</span><span>♡</span>
+        <span>✦</span><span>·</span><span>♡</span><span>✧</span>
+    </div>
 
+    <!-- COUNTDOWN PAGE -->
     <section id="countdownPage" class="page">
-
-        <p class="small-heading">
-            a little surprise is waiting...
-        </p>
-
-        <h1>
-            Someone special is almost 17 ♡
-        </h1>
-
-        <p class="subtitle">
-            The countdown to your special day
-        </p>
-
-        <div class="countdown">
-
-            <div>
-                <span id="days">00</span>
-                <small>Days</small>
-            </div>
-
-            <div>
-                <span id="hours">00</span>
-                <small>Hours</small>
-            </div>
-
-            <div>
-                <span id="minutes">00</span>
-                <small>Minutes</small>
-            </div>
-
-            <div>
-                <span id="seconds">00</span>
-                <small>Seconds</small>
-            </div>
-
-        </div>
-
-        <p class="small-heading">
-            made with love, just for you ♡
-        </p>
-
-    </section>
-
-
-    <!-- =================================
-         PAGE 2: BIRTHDAY HOMEPAGE
-    ================================== -->
-
-    <section id="birthdayPage" class="page hidden">
-
-        <p class="small-heading">
-            November 18th ♡
-        </p>
-
-        <div class="photo-frame">
-
-            <img
-                src="images/our-picture.jpg"
-                alt="Our favorite memory together"
-            >
-
-            <p class="photo-caption">
-                one of my favorite people ♡
-            </p>
-
-        </div>
-
-        <h1>
-            Happy 17th Birthday!
-        </h1>
-
-        <p class="subtitle">
-            To many more memories, laughs, and adventures together.
-        </p>
-
-        <button id="openButton">Open Surprise ♡</button>
-
-        <p class="small-heading">
-            with love, always
-        </p>
-
-    </section>
-
-
-    <!-- =================================
-         PAGE 3: SURPRISE MENU
-    ================================== -->
-
-    <section id="menuPage" class="page hidden">
-
-        <p class="small-heading">
-            a little something for you
-        </p>
-
-        <h1>
-            Choose your surprise ♡
-        </h1>
-
-        <p class="subtitle">
-            I made a few things just for your special day.
-        </p>
-
-        <div class="cards">
-
-            <!-- LETTER CARD -->
-
-            <button class="surprise-card" id="letterButton">
-
-                <span class="card-icon">💌</span>
-
-                <h2>
-                    A Little Letter
-                </h2>
-
-                <p>
-                    A few things I wanted to tell you.
-                </p>
-
-                <span>open me →</span>
-
-            </button>
-
-
-            <!-- CAKE CARD -->
-
-            <button class="surprise-card" id="cakeButton">
-
-                <span class="card-icon">🎂</span>
-
-                <h2>
-                    Make a Wish
-                </h2>
-
-                <p>
-                    Every birthday needs a cake!
-                </p>
-
-                <span>open me →</span>
-
-            </button>
-
-        </div>
-
-    </section>
-
-
-    <!-- =================================
-         PAGE 4: LETTER
-    ================================== -->
-
-    <section id="letterPage" class="page hidden">
-
-        <p class="small-heading">
-            a little note for you
-        </p>
-
-        <h1>
-            To my favorite girl ♡
-        </h1>
-
-        <div class="letter">
-
-            <p>
-                Dear birthday girl,
-            </p>
-
-            <p>
-                Your personal birthday message will go here.
-                I'll fill this with all the things I want you to know.
-            </p>
-
-            <p>
-                With lots of love,
-            </p>
-
-        </div>
-
-        <button class="backButton">
-            ← Back to surprises
-        </button>
-
-    </section>
-
-
-    <!-- =================================
-         PAGE 5: BIRTHDAY CAKE
-    ================================== -->
-
-    <section id="cakePage" class="page hidden">
-
-        <p class="small-heading">
-            make a wish!
-        </p>
-
-        <h1>
-            17 wishes for you ♡
-        </h1>
-
-        <p class="subtitle">
-            Close your eyes and make a wish!
-        </p>
-
-
-        <!-- ILLUSTRATED CAKE -->
-
-        <div class="birthday-cake">
-
-            <!-- JavaScript creates exactly 17 candles here -->
-
-            <div class="candles" id="candles"></div>
-
-            <div class="cake-top"></div>
-
-            <div class="cake-body">
-
-                <div class="icing"></div>
-
-                <div class="cake-decoration">
-                    ♡　♡　♡
+        <div class="countdown-content">
+            <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
+            <div class="tiny-heart">♡</div>
+            <h1>Something special<br>is almost here...</h1>
+            <p class="subtitle">Counting down to your special day</p>
+
+            <div class="countdown" aria-label="Birthday countdown">
+                <div class="time-box">
+                    <span id="days">00</span>
+                    <small>days</small>
                 </div>
-
+                <div class="time-box">
+                    <span id="hours">00</span>
+                    <small>hours</small>
+                </div>
+                <div class="time-box">
+                    <span id="minutes">00</span>
+                    <small>minutes</small>
+                </div>
+                <div class="time-box">
+                    <span id="seconds">00</span>
+                    <small>seconds</small>
+                </div>
             </div>
 
-            <div class="cake-plate"></div>
-
+            <p class="date-note">November 18, 2026 ♡</p>
         </div>
-
-
-        <p id="cakeMessage">
-            17 little candles, one big wish.
-        </p>
-
-
-        <!-- CAKE BUTTONS -->
-
-        <div class="cake-buttons">
-
-            <button id="blowButton">
-                Blow Out the Candles! ♡
-            </button>
-
-            <button id="resetButton">
-                ↻ Reset Cake
-            </button>
-
-        </div>
-
-
-        <!-- CELEBRATION MESSAGE -->
-
-        <p id="celebration" class="hidden">
-            Your wish is made! Happy Birthday! 🎉
-        </p>
-
-
-        <button class="backButton">
-            ← Back to surprises
-        </button>
-
     </section>
 
-
-/* =====================================
-   1. BIRTHDAY DATE
-===================================== */
-
-// November 18, 2026
-// JavaScript months start at 0, so November = 10.
-
-const birthday = new Date(2026, 10, 18, 0, 0, 0);
-
-
-/* =====================================
-   2. PAGE NAVIGATION
-===================================== */
-
-const pages = [
-    "countdownPage",
-    "birthdayPage",
-    "menuPage",
-    "letterPage",
-    "cakePage"
-];
-
-function showPage(pageId) {
-    pages.forEach(id => {
-        document.getElementById(id).classList.add("hidden");
-    });
-
-    document.getElementById(pageId).classList.remove("hidden");
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-}
-
-
-/* =====================================
-   3. COUNTDOWN
-===================================== */
-
-let birthdayUnlocked = false;
-
-function updateCountdown() {
-    const now = new Date();
-    const difference = birthday - now;
-
-    if (difference <= 0) {
-        if (!birthdayUnlocked) {
-            birthdayUnlocked = true;
-            showPage("birthdayPage");
-        }
-
-        clearInterval(countdownInterval);
-        return;
-    }
-
-    const days = Math.floor(difference / 86400000);
-    const hours = Math.floor((difference / 3600000) % 24);
-    const minutes = Math.floor((difference / 60000) % 60);
-    const seconds = Math.floor((difference / 1000) % 60);
-
-    document.getElementById("days").textContent = days;
-    document.getElementById("hours").textContent = hours;
-    document.getElementById("minutes").textContent = minutes;
-    document.getElementById("seconds").textContent = seconds;
-}
-
-updateCountdown();
-
-const countdownInterval = setInterval(updateCountdown, 1000);
-
-
-/* =====================================
-   4. BIRTHDAY HOMEPAGE
-===================================== */
-
-document.getElementById("openButton").addEventListener("click", () => {
-    showPage("menuPage");
-});
-
-
-/* =====================================
-   5. SURPRISE MENU
-===================================== */
-
-document.getElementById("letterButton").addEventListener("click", () => {
-    showPage("letterPage");
-});
-
-document.getElementById("cakeButton").addEventListener("click", () => {
-    showPage("cakePage");
-});
-
-
-/* =====================================
-   6. BACK BUTTONS
-===================================== */
-
-document.querySelectorAll(".backButton").forEach(button => {
-    button.addEventListener("click", () => {
-        showPage("menuPage");
-    });
-});
-
-
-/* =====================================
-   7. CREATE 17 BIRTHDAY CANDLES
-===================================== */
-
-const candlesContainer = document.getElementById("candles");
-
-for (let i = 0; i < 17; i++) {
-
-    const candle = document.createElement("div");
-    candle.className = "candle";
-
-    const flame = document.createElement("div");
-    flame.className = "flame";
-
-    candle.appendChild(flame);
-    candlesContainer.appendChild(candle);
-}
-
-
-/* =====================================
-   8. BLOW OUT THE CANDLES
-===================================== */
-
-const blowButton = document.getElementById("blowButton");
-const resetButton = document.getElementById("resetButton");
-
-blowButton.addEventListener("click", () => {
-
-    // Turn off all 17 flames
-    document.querySelectorAll(".flame").forEach(flame => {
-        flame.classList.add("off");
-    });
-
-    // Change the message
-    document.getElementById("cakeMessage").textContent =
-        "You made a wish! ♡";
-
-    // Show celebration
-    document.getElementById("celebration").classList.remove("hidden");
-
-    // Prevent repeated clicks until reset
-    blowButton.disabled = true;
-
-    // Create confetti
-    createConfetti();
-});
-
-
-/* =====================================
-   9. RESET THE CAKE
-===================================== */
-
-resetButton.addEventListener("click", () => {
-
-    // Turn all flames back on
-    document.querySelectorAll(".flame").forEach(flame => {
-        flame.classList.remove("off");
-    });
-
-    // Restore original message
-    document.getElementById("cakeMessage").textContent =
-        "17 little candles, one big wish.";
-
-    // Hide celebration
-    document.getElementById("celebration").classList.add("hidden");
-
-    // Enable blow button again
-    blowButton.disabled = false;
-});
-
-
-/* =====================================
-   10. CONFETTI ANIMATION
-===================================== */
-
-function createConfetti() {
-
-    const decorations = ["🎉", "✨", "💗", "🎊", "♡"];
-
-    for (let i = 0; i < 60; i++) {
-
-        const confetti = document.createElement("span");
-
-        confetti.textContent =
-            decorations[Math.floor(Math.random() * decorations.length)];
-
-        confetti.style.position = "fixed";
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.top = "-30px";
-        confetti.style.fontSize = (16 + Math.random() * 15) + "px";
-        confetti.style.pointerEvents = "none";
-        confetti.style.zIndex = "9999";
-
-        confetti.style.animation =
-            `fall ${2 + Math.random() * 3}s linear forwards`;
-
-        document.body.appendChild(confetti);
-
-        setTimeout(() => {
-            confetti.remove();
-        }, 5000);
-    }
-}
-
-
-<!-- =================================
-     PAGE 4: LETTER
-================================== -->
-
-<!-- PAGE 4: LETTER -->
-
-<section id="letterPage" class="page hidden">
-
-    <p class="small-heading">a little note for you</p>
-
-    <h1>A letter from me ♡</h1>
-
-    <p class="subtitle">I have something to tell you...</p>
-
-    <div class="envelope-area">
-
-        <div class="envelope" id="envelope">
-
-            <div class="envelope-back"></div>
-
-            <div class="letter-paper" id="letterPaper">
-                <p class="letter-title">To my favorite girl ♡</p>
-                <p>Dear birthday girl,</p>
-                <p>Your personal birthday message will go here.</p>
-                <p>With lots of love,</p>
+    <!-- BIRTHDAY HOMEPAGE -->
+    <section id="birthdayPage" class="page hidden">
+        <div class="birthday-container">
+
+            <p class="eyebrow">NOVEMBER 18, 2026</p>
+            <div class="homepage-sparkles">✧　♡　✧</div>
+
+            <p class="script-text">today is all about you</p>
+            <h1 class="birthday-title">Happy 17th<br>Birthday!</h1>
+
+            <div class="polaroid">
+                <div class="homepage-photo">
+                    <img src="images/our-picture.jpg"
+                         alt="A favorite picture of us"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                    <div class="photo-fallback">♡<br><small>our favorite picture</small></div>
+                </div>
+                <p>one of my favorite people ♡</p>
             </div>
 
-            <div class="envelope-front"></div>
+            <p class="birthday-message">
+                A little website filled with memories, surprises,
+                and lots of love. I hope your day is as special as you are!
+            </p>
 
-            <div class="envelope-flap"></div>
+            <div class="homepage-divider">───── ♡ ─────</div>
 
+            <button id="openButton" class="main-button">
+                Open your surprises <span>→</span>
+            </button>
+
+            <p class="homepage-footer">made with love, just for you ♡</p>
         </div>
+    </section>
 
-    </div>
+    <!-- SURPRISE MENU -->
+    <section id="menuPage" class="page hidden">
+        <div class="section-container">
+            <p class="eyebrow">A FEW LITTLE SURPRISES</p>
+            <h1 class="section-title">Made just for you ♡</h1>
+            <p class="subtitle">Pick something to open...</p>
 
-    <button id="envelopeButton">Open My Letter ♡</button>
+            <div class="surprise-grid">
 
-    <button id="closeLetterButton" class="hidden">
-        Close Letter ↻
-    </button>
+                <button id="scrapbookButton" class="surprise-card">
+                    <span class="card-icon">📖</span>
+                    <span class="card-title">A Glimpse of 16</span>
+                    <span class="card-description">A little scrapbook of your year</span>
+                    <span class="card-arrow">↗</span>
+                </button>
 
-    <button class="backButton">← Back to surprises</button>
+                <button id="letterButton" class="surprise-card">
+                    <span class="card-icon">💌</span>
+                    <span class="card-title">A Little Letter</span>
+                    <span class="card-description">A few words from me to you</span>
+                    <span class="card-arrow">↗</span>
+                </button>
 
-</section>
+                <button id="cakeButton" class="surprise-card">
+                    <span class="card-icon">🎂</span>
+                    <span class="card-title">Make a Wish</span>
+                    <span class="card-description">Your very own birthday cake</span>
+                    <span class="card-arrow">↗</span>
+                </button>
 
-    <div class="envelope-flap"></div>
-</div>
+            </div>
 
-    </div>
+            <button id="homeButton" class="secondary-button">
+                ← Back to homepage
+            </button>
+        </div>
+    </section>
 
-    <button id="envelopeButton">Open My Letter ♡</button>
+    <!-- SCRAPBOOK PAGE -->
+    <section id="scrapbookPage" class="page hidden">
+        <div class="scrapbook-container">
 
-    <button id="closeLetterButton" class="hidden">
-        Close Letter ↻
-    </button>
+            <p class="eyebrow">A YEAR WORTH REMEMBERING</p>
+            <h1 class="section-title">A Glimpse of 16</h1>
+            <p class="subtitle">365 days of memories, moments, and being you.</p>
 
-    <button class="backButton">← Back to surprises</button>
+            <div class="scrapbook-intro">
+                <span class="script-text">dear sixteen,</span>
+                <p>
+                    A little collection of the moments, people, places,
+                    and memories that made this year yours.
+                </p>
+                <span class="intro-decoration">♡ ✧ ♡</span>
+            </div>
 
-</section>
+            <div id="scrapbookGrid" class="scrapbook-grid">
+                <!-- JavaScript automatically creates 18 photo spaces here. -->
+            </div>
 
+            <div class="scrapbook-ending">
+                <p class="script-text">and just like that...</p>
+                <h2>hello, 17! ♡</h2>
+                <p>Here's to another year of memories.</p>
+            </div>
 
-    <!-- =================================
-         JAVASCRIPT
-    ================================== -->
+            <button class="backButton secondary-button">
+                ← Back to surprises
+            </button>
+        </div>
+    </section>
+
+    <!-- LETTER PAGE -->
+    <section id="letterPage" class="page hidden">
+        <div class="letter-container">
+            <p class="eyebrow">A LITTLE SOMETHING FROM ME</p>
+            <h1 class="section-title">A Letter for You ♡</h1>
+            <p class="subtitle">Tap the envelope to open it</p>
+
+            <div class="envelope-area">
+                <button id="envelope" class="envelope" aria-label="Open your letter">
+                    <div class="envelope-back"></div>
+                    <div class="letter-paper">
+                        <span class="letter-heart">♡</span>
+                        <p>To my favorite person,</p>
+                        <span class="letter-small">with love, always</span>
+                    </div>
+                    <div class="envelope-front"></div>
+                    <div class="envelope-flap"></div>
+                    <div class="envelope-seal">♡</div>
+                </button>
+            </div>
+
+            <p id="envelopeHint" class="envelope-hint">Tap to open ♡</p>
+
+            <div id="letterMessage" class="letter-message hidden">
+                <p class="script-text">Dear you,</p>
+
+                <p>
+                    Happy 17th birthday! I honestly can't believe we're
+                    already here. It feels like we've grown up together
+                    through so many different memories.
+                </p>
+
+                <p>
+                    I'm so grateful for all the laughs, random moments,
+                    conversations, and memories we've made. I hope this
+                    new chapter brings you so many opportunities, happiness,
+                    and everything you've been wishing for.
+                </p>
+
+                <p>
+                    Thank you for being such an important part of my life.
+                    Here's to making even more memories together!
+                </p>
+
+                <p class="letter-signoff">Love you lots ♡</p>
+            </div>
+
+            <button class="backButton secondary-button">
+                ← Back to surprises
+            </button>
+        </div>
+    </section>
+
+    <!-- CAKE PAGE -->
+    <section id="cakePage" class="page hidden">
+        <div class="cake-container">
+            <p class="eyebrow">IT'S YOUR SPECIAL DAY</p>
+            <h1 class="section-title">Make a Wish! ♡</h1>
+            <p class="subtitle">17 candles, one very special birthday.</p>
+
+            <div class="cake-scene">
+                <div id="candles" class="candles"></div>
+
+                <div class="cake">
+                    <div class="cake-top"></div>
+                    <div class="cake-middle">
+                        <div class="icing-drip"></div>
+                    </div>
+                    <div class="cake-bottom"></div>
+                    <div class="cake-plate"></div>
+                </div>
+            </div>
+
+            <p id="cakeMessage" class="cake-message">
+                Take a breath and make a wish! ♡
+            </p>
+
+            <div class="cake-buttons">
+                <button id="blowButton" class="main-button">
+                    ✧ Blow out the candles
+                </button>
+                <button id="resetButton" class="secondary-button">
+                    ↻ Light them again
+                </button>
+            </div>
+
+            <button class="backButton secondary-button">
+                ← Back to surprises
+            </button>
+        </div>
+    </section>
 
     <script src="script.js"></script>
-
 </body>
 </html>
