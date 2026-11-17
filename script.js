@@ -25,7 +25,7 @@ function showPage(pageId) {
 
 // COUNTDOWN
 
-const birthday = new Date(2026, 10, 16, 1, 0, 0);
+const birthday = new Date(2026, 10, 18, 1, 0, 0);
 
 function updateCountdown() {
     const now = new Date();
